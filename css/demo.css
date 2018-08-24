@@ -1,0 +1,295 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+:root, body{
+	width: 100%;
+	height: 100%;
+}
+
+.wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-image: url(../imgs/bg.jpg);
+	background-size: 100% 100%;
+	background-color: #333;
+	/* perspective: 600px; */
+}
+
+.startWrapper {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: 30px 30px;
+	width: 200px;
+	height: 80px;
+	border-radius: 40px;
+	background-color: #333;
+	/* display: none; */
+}
+
+.startBtn {
+	width: 190px;
+	height: 70px;
+	margin: 3px 0 0 3px;
+	border: 2px solid #fff;
+	border-radius: 40px;
+	background-color: #333;
+	font-size: 50px;
+	line-height: 70px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.choseLevel {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	width: 200px;
+	height: 300px;
+	display: none;
+}
+
+.choseLevel div {
+	width: 100px;
+	height: 50px;
+	margin: 35px auto;
+	border: 2px solid #333;
+	border-radius: 20px;
+	line-height: 50px;
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+}
+
+.over {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	width: 500px;
+	height: 300px;
+	background-color: #888;
+	background-image: url(../imgs/gameOver.jpg);
+	background-size: 100% 100%;
+	display: none;
+	animation: overin 0.5s linear forwards;
+}
+
+@keyframes overin {
+	0% {
+		width: 0px;
+		height: 0px;
+		opacity: 0;
+	}
+	100% {
+		width: 500px;
+		height: 300px;
+		opacity: 0.8;
+	}
+}
+
+.retry {
+	margin: 60px auto;
+	width: 160px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	color: #000;
+	background-color: #fff;
+	border-radius: 30px;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.giveUp {
+	margin: 0px auto;
+	width: 160px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	color: #000;
+	background-color: #fff;
+	border-radius: 30px;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.mineBox {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: 100px auto 0;
+	width: 600px;
+	height: 600px;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	display: none;
+	box-shadow: 0px 0px 3px 3px #333;
+	animation: mineshow 1s linear forwards;
+	background-image: url(../imgs/box.jpg);
+}
+
+
+@keyframes mineshow {
+	0% {
+		width: 0px;
+		height: 0px;
+		opacity: 0;
+	}
+	100% {
+		width: 600px;
+		height: 600px;
+		opacity: 1;
+	}
+}
+
+.mineBox div {
+	float: left;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	background-image: url(../imgs/box.jpg);
+	background-size: 100% 100%;
+	user-select: none;
+	cursor: pointer;
+	animation: rotate 0.6s linear;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate3d(0, 0, 1, 0deg);
+	}
+	25% {
+		transform: rotate3d(0, 0, 1, 15deg);
+	}
+	50% {
+		transform: rotate3d(0, 0, 1, 0deg);
+	}
+	75% {
+		transform: rotate3d(0, 0, 1, -15deg);
+	}
+	100% {
+		transform: rotate3d(0, 0, 1, 0deg);
+	}
+}
+
+.seniorBox div {
+	width: 29px;
+	height: 29px;
+	line-height: 29px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.seniorBox {
+	background-size: 30px 30px;
+}
+
+.mediumBox {
+	background-size: 40px 40px;
+}
+
+.juniorBox {
+	background-size: 60px 60px;
+}
+
+.mediumBox div {
+	width: 39px;
+	height: 39px;
+	line-height: 39px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.mineBox .clicked {
+	box-shadow: 0 0 3px 3px #ccc inset;
+	background: rgba(222, 129, 0, 0.6);
+	animation: falter 0.6s linear;
+}
+
+@keyframes falter {
+	0% {
+	opacity: 1;
+	}
+	50% {
+		opacity: 0.2;
+	}
+	100% {
+	opacity: 1;
+	}
+}
+
+.juniorBox div {
+	width: 59px;
+	height: 59px;
+	line-height: 59px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.mineBox div.clickMine {
+	background-image: url(../imgs/mine.jpg);
+}
+
+.mineBox div.rightClickMine {
+	background-image: url(../imgs/isMine.jpg);
+}
+
+.fraudScore {
+	position: absolute;
+	top: 20px;
+	left: 50%;
+	margin-left: -150px;
+	width: 300px;
+	height: 60px;
+	line-height: 60px;
+	font-size: 20px;
+	color: papayawhip;
+	text-align: center;
+}
+
+.success {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	width: 300px;
+	height: 300px;
+	background-image: url(../imgs/success.jpg);
+	background-size: 100% 100%;
+	display: none;
+}
+
+.goOn {
+	margin: 222px auto;
+	width: 160px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	color: #000;
+	background-color: #fff;
+	border-radius: 30px;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
